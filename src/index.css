@@ -1,0 +1,260 @@
+@import "tailwindcss";
+
+/* ===== Design System Variables ===== */
+:root {
+  /* Primary Colors - Maroon/Burgundy from logo */
+  --color-primary: #7d1f2f;
+  --color-primary-light: #9e3344;
+  --color-primary-dark: #5c1623;
+
+  /* Accent Colors - Gold/Beige from logo */
+  --color-accent: #d4a574;
+  --color-accent-light: #e5c4a0;
+  --color-accent-dark: #b8895a;
+
+  /* Neutral Colors */
+  --color-bg-light: #fafafa;
+  --color-bg-dark: #0a0a0a;
+  --color-text-light: #1a1a1a;
+  --color-text-dark: #f5f5f5;
+}
+
+/* ===== Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Light Theme */
+body.light {
+  background-color: var(--color-bg-light);
+  color: var(--color-text-light);
+}
+
+/* Dark Theme */
+body.dark {
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-dark);
+}
+
+/* ===== Typography ===== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+/* ===== Section Padding - Responsive ===== */
+.section-padding {
+  padding: 60px 16px;
+}
+
+@media (min-width: 640px) {
+  .section-padding {
+    padding: 80px 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding: 100px 48px;
+  }
+}
+
+/* ===== Gradient Text ===== */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ===== Animations ===== */
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(125, 31, 47, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(125, 31, 47, 0.5);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+/* ===== Hover Effects ===== */
+.hover-lift {
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-12px);
+}
+
+body.light .hover-lift:hover {
+  box-shadow: 0 20px 40px rgba(125, 31, 47, 0.12);
+  border-color: rgba(125, 31, 47, 0.2);
+}
+
+body.dark .hover-lift:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(212, 165, 116, 0.1);
+  border-color: rgba(212, 165, 116, 0.3);
+}
+
+/* ===== Link Underline Animation ===== */
+.link-underline {
+  position: relative;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transition: width 0.3s ease;
+}
+
+.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ===== Custom Scrollbar ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ===== Selection ===== */
+::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+/* ===== Card Styles ===== */
+.card {
+  border-radius: 16px;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+}
+
+/* ===== Button Base ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* ===== Container Max Widths ===== */
+.container-sm {
+  max-width: 640px;
+}
+
+.container-md {
+  max-width: 768px;
+}
+
+.container-lg {
+  max-width: 1024px;
+}
+
+.container-xl {
+  max-width: 1280px;
+}
+
+/* ===== Responsive Grid Gap ===== */
+.grid-gap-responsive {
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .grid-gap-responsive {
+    gap: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-gap-responsive {
+    gap: 32px;
+  }
+}
+
+/* ===== Safe Area for Mobile ===== */
+@supports (padding: max(0px)) {
+  .section-padding {
+    padding-left: max(16px, env(safe-area-inset-left));
+    padding-right: max(16px, env(safe-area-inset-right));
+  }
+}
+
+/* ===== Fix for overlapping content ===== */
+main {
+  position: relative;
+  z-index: 1;
+}
+
+section {
+  position: relative;
+}
+
+/* ===== Better image handling ===== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== Input Focus States ===== */
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+/* ===== Smooth transitions for theme changes ===== */
+body,
+body * {
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
