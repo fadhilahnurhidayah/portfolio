@@ -1,7 +1,4 @@
-import { useTheme } from '../context/ThemeContext';
-
 function DLogo({ size = 'md' }: { size?: 'sm' | 'md' | 'lg' }) {
-    const { theme } = useTheme();
 
     const sizeMap = {
         sm: { width: 32, height: 32, fontSize: 18, padding: 4 },
