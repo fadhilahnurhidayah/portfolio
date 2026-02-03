@@ -43,9 +43,9 @@ const experiences = [
 const skills = [
     { name: 'Public Speaking', level: 90 },
     { name: 'Partnership', level: 85 },
-    { name: 'Project Mgmt', level: 85 },
+    { name: 'Project Management', level: 85 },
     { name: 'Web Dev', level: 80 },
-    { name: 'Time Mgmt', level: 90 },
+    { name: 'Time Management', level: 90 },
 ];
 
 function Experience() {

@@ -59,7 +59,7 @@ const projects = [
         title: 'Panitia Riau Cup',
         category: 'Event',
         description: 'Mengelola manajemen waktu pertandingan (Time Keeper) dan memberikan layanan informasi kepada peserta untuk memastikan kelancaran turnamen berskala daerah.',
-        tech: ['Time Mgmt', 'Service'],
+        tech: ['Time Management', 'Service'],
         image: minisoccerImg,
         liveUrl: '',
     },

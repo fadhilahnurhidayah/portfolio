@@ -133,23 +133,6 @@ function Menu({ setMenuOpen }: MenuProps) {
                         </motion.div>
                     ))}
                 </nav>
-
-                {/* Footer */}
-                <motion.div
-                    className={`absolute bottom-8 left-0 right-0 flex justify-center gap-8 text-sm ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'
-                        }`}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{
-                        opacity: 1,
-                        y: 0,
-                        transition: { delay: 0.8 }
-                    }}
-                    exit={{ opacity: 0 }}
-                >
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-(--color-primary) transition-colors">GitHub</a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-(--color-primary) transition-colors">LinkedIn</a>
-                    <a href="mailto:hello@example.com" className="hover:text-(--color-primary) transition-colors">Email</a>
-                </motion.div>
             </div>
         </motion.section>
     );

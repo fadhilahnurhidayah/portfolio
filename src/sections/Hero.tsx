@@ -48,12 +48,12 @@ function Hero() {
         >
             <div className="w-full max-w-3xl mx-auto text-center">
                 {/* Logo */}
-                <motion.div className="mb-10 flex justify-center">
+                <motion.div className="mb-8 flex justify-center">
                     <img
                         ref={logoRef}
                         src={logoImg}
                         alt="Fadhilah Nurhidayah"
-                        className="w-32 h-32 sm:w-48 sm:h-48 object-contain rounded-full"
+                        className="w-24 h-24 sm:w-36 sm:h-36 md:w-40 md:h-40 object-contain rounded-full"
                         style={{
                             boxShadow: `0 0 40px rgba(125, 31, 47, 0.3)`
                         }}
@@ -61,24 +61,24 @@ function Hero() {
                 </motion.div>
 
                 {/* Name */}
-                <h1 className="hero-line text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-4">
+                <h1 className="hero-line text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-3">
                     <span className={theme === 'light' ? 'text-gray-900' : 'text-white'}>
                         Fadhilah
                     </span>
                 </h1>
 
-                <h1 className="hero-line text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-8 bg-linear-to-r from-[#7d1f2f] to-[#d4a574] bg-clip-text text-transparent">
+                <h1 className="hero-line text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6 bg-linear-to-r from-[#7d1f2f] to-[#d4a574] bg-clip-text text-transparent">
                     Nurhidayah
                 </h1>
 
                 {/* Title */}
-                <h2 className={`hero-line text-xl sm:text-3xl font-medium mb-8 text-center ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                <h2 className={`hero-line text-lg sm:text-2xl font-medium mb-6 text-center ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                     }`}>
                     Partnership & Grants
                 </h2>
 
                 {/* Description */}
-                <p className={`hero-line text-base sm:text-lg leading-relaxed mb-12 max-w-2xl mx-auto text-center ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'
+                <p className={`hero-line text-sm sm:text-base leading-relaxed mb-10 max-w-2xl mx-auto text-center ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'
                     }`}>
                     Mahasiswa Teknik Informatika UIN Suska Riau yang passionate tentang
                     kolaborasi strategis, event organizing, dan web development.
@@ -86,13 +86,13 @@ function Hero() {
 
                 {/* Buttons */}
                 <motion.div
-                    className="hero-line flex flex-col sm:flex-row gap-5 justify-center"
+                    className="hero-line flex flex-col sm:flex-row gap-4 justify-center"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1.2, duration: 0.6 }}
                 >
-                    <MainButton text="Lihat Portfolio" link="#projects" variant="primary" icon />
-                    <MainButton text="Hubungi Saya" link="#contact" variant="outline" />
+                    <MainButton text="Lihat Portfolio" link="#projects" variant="primary" icon size="sm" />
+                    <MainButton text="Hubungi Saya" link="#contact" variant="outline" size="sm" />
                 </motion.div>
 
                 {/* Scroll Indicator */}
