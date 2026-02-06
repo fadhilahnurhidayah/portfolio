@@ -47,7 +47,7 @@ const projects = [
     },
     {
         id: 2,
-        title: 'MC & Aktivator Program – #BerbagiBahagia',
+        title: 'MC & Aktivator Program – #BerbagiBahagia By Cinta Quran Foundation x NAYS Indonesia x Volunteernesia',
         category: 'Event',
         description: 'Sebagai Master of Ceremony (MC) yang memandu sesi edukasi dan permainan interaktif (games) untuk menciptakan suasana positif bagi adik-adik.',
         tech: ['Public Speaking', 'Social'],
