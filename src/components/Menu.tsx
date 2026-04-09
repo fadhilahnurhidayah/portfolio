@@ -16,6 +16,7 @@ function Menu({ setMenuOpen }: MenuProps) {
         { route: '#about', title: 'About' },
         { route: '#projects', title: 'Projects' },
         { route: '#experience', title: 'Experience' },
+        { route: '#certificates', title: 'Certificates' },
         { route: '#contact', title: 'Contact' },
     ];
 

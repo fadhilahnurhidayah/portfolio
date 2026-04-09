@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../context/ThemeContext';
 import Menu from './Menu';
-import DarkLightSwitch from './DarkLightSwitch';
 import DLogo from './DLogo';
 
 function Navbar() {
@@ -24,6 +23,7 @@ function Navbar() {
         { route: '#about', title: 'About' },
         { route: '#projects', title: 'Projects' },
         { route: '#experience', title: 'Experience' },
+        { route: '#certificates', title: 'Certificates' },
         { route: '#contact', title: 'Contact' },
     ];
 
@@ -38,7 +38,7 @@ function Navbar() {
                     : 'py-6 bg-transparent'
                     }`}
             >
-                <div className="max-w-[1920px] mx-auto px-6 md:pl-12 md:pr-16">
+                <div className="max-w-7xl mx-auto px-6 md:px-12">
                     <div className="flex items-center justify-between">
                         {/* Logo */}
                         <a href="#home" className="flex items-center gap-3 group">
@@ -74,10 +74,6 @@ function Navbar() {
 
                         {/* Right Section */}
                         <div className="flex items-center gap-8 pr-2">
-                            <div className="scale-100 transition-transform hover:scale-110">
-                                <DarkLightSwitch />
-                            </div>
-
                             {/* Mobile Menu Button */}
                             <button
                                 onClick={() => setMenuOpen(true)}

@@ -3,49 +3,53 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTheme } from '../context/ThemeContext';
-import { Briefcase, GraduationCap, Users } from 'lucide-react';
+import { Briefcase, GraduationCap, Users, Calendar } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const experiences = [
     {
-        type: 'work',
-        title: 'Bendahara - Labsquad AIoT',
-        company: 'Komunitas Teknologi AIoT',
+        type: 'Work',
+        title: 'Fullstack Web Developer Cohort',
+        company: 'Coding Camp 2026 - Dicoding x DBS Foundation',
+        period: 'Feb 2026 - Sekarang',
+        desc: 'Peserta program beasiswa intensif pengembangan Front-End dan Back-End Web menggunakan ReactJS dan PostgreSQL.'
+    },
+    {
+        type: 'Internship',
+        title: 'Fullstack Developer Intern',
+        company: 'PT PLN (Persero) UP2D Pekanbaru',
+        period: 'Jan - Mar 2026',
+        desc: 'Mengembangkan aplikasi MOVI (Monitoring Evidensi) untuk otomasi pelaporan dan monitoring data internal.'
+    },
+    {
+        type: 'Organization',
+        title: 'Partnership & Collaboration Officer',
+        company: 'Ruang Asa',
+        period: 'Mar 2026 - Sekarang',
+        desc: 'Membangun dan mengelola kemitraan strategis dengan pihak eksternal untuk program bantuan sosial.'
+    },
+    {
+        type: 'Volunteering',
+        title: 'Relawan Dokumentasi',
+        company: 'Rumah Zakat x Hidup Mulia Mati Mulia Korps',
+        period: 'Mar 2026',
+        desc: 'Bertanggung jawab atas manajemen aset visual dan dokumentasi kegiatan publikasi panti asuhan.'
+    },
+    {
+        type: 'Organization',
+        title: 'Bendahara',
+        company: 'Labsquad AIoT',
         period: 'Sep 2025 - Sekarang',
+        desc: 'Mengelola administrasi keuangan organisasi dan menyusun laporan anggaran kegiatan tahunan.'
     },
     {
-        type: 'work',
-        title: 'Time Keeper & Customer Service',
-        company: 'Riau Cup Minisoccer',
-        period: 'Sep 2025',
-    },
-    {
-        type: 'work',
-        title: 'Divisi Acara & MC',
-        company: 'Asomatif 2024',
-        period: 'Okt 2024',
-    },
-    {
-        type: 'volunteer',
-        title: 'Relawan #BerbagiBahagia',
-        company: 'CQF, NAYS & Volunteernesia',
-        period: 'Mar 2025',
-    },
-    {
-        type: 'education',
+        type: 'Education',
         title: 'S1 Teknik Informatika',
         company: 'UIN Suska Riau',
         period: '2023 - Sekarang',
+        desc: 'Mahasiswa semester 6 dengan konsentrasi pada rekayasa perangkat lunak dan sistem informasi.'
     },
-];
-
-const skills = [
-    { name: 'Public Speaking', level: 90 },
-    { name: 'Partnership', level: 85 },
-    { name: 'Project Management', level: 85 },
-    { name: 'Web Dev', level: 80 },
-    { name: 'Time Management', level: 90 },
 ];
 
 function Experience() {
@@ -59,7 +63,7 @@ function Experience() {
                 {
                     y: 0,
                     opacity: 1,
-                    duration: 0.6,
+                    duration: 0.8,
                     scrollTrigger: {
                         trigger: '.exp-title',
                         start: 'top 90%',
@@ -72,20 +76,10 @@ function Experience() {
     }, []);
 
     const getIcon = (type: string) => {
-        switch (type) {
-            case 'work': return Briefcase;
+        switch (type.toLowerCase()) {
+            case 'work': case 'internship': return Briefcase;
             case 'education': return GraduationCap;
-            case 'volunteer': return Users;
-            default: return Briefcase;
-        }
-    };
-
-    const getColor = (type: string) => {
-        switch (type) {
-            case 'work': return 'bg-[#7d1f2f]';
-            case 'education': return 'bg-gray-700';
-            case 'volunteer': return 'bg-green-600';
-            default: return 'bg-[#7d1f2f]';
+            default: return Users;
         }
     };
 
@@ -93,107 +87,74 @@ function Experience() {
         <section
             id="experience"
             ref={sectionRef}
-            className="section-padding"
+            className={`w-full flex justify-center section-padding ${theme === 'light' ? 'bg-white' : 'bg-black'}`}
         >
-            <div className="w-full flex flex-col items-center">
+            <div className="w-full max-w-4xl flex flex-col items-center text-center">
                 {/* Section Title */}
-                <div className="text-center mb-16">
-                    <span className={`exp-title inline-block text-sm font-medium tracking-widest uppercase mb-4 ${theme === 'light' ? 'text-[#7d1f2f]' : 'text-[#d4a574]'
+                <div className="flex flex-col items-center mb-24">
+                    <span className={`exp-title inline-block text-sm font-black tracking-[0.2em] uppercase mb-4 ${theme === 'light' ? 'text-[#7d1f2f]' : 'text-[#d4a574]'
                         }`}>
-                        Perjalanan Saya
+                        History
                     </span>
-                    <h2 className={`exp-title text-3xl sm:text-4xl md:text-5xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'
+                    <h2 className={`exp-title text-4xl sm:text-5xl md:text-6xl font-black ${theme === 'light' ? 'text-gray-900' : 'text-white'
                         }`}>
-                        Pengalaman & Pendidikan
+                        Pengalaman
                     </h2>
                 </div>
 
-                <div className="w-full max-w-5xl grid md:grid-cols-2 gap-16 lg:gap-24">
-                    {/* Timeline */}
-                    <div>
-                        <h3 className={`text-2xl font-bold mb-10 text-center md:text-left ${theme === 'light' ? 'text-gray-900' : 'text-white'
-                            }`}>
-                            Riwayat
-                        </h3>
-                        <div className="space-y-8">
-                            {experiences.map((exp, idx) => {
-                                const Icon = getIcon(exp.type);
-                                return (
-                                    <motion.div
-                                        key={idx}
-                                        className={`flex items-start gap-6 p-8 rounded-3xl hover-lift ${theme === 'light'
-                                            ? 'bg-white shadow-xl shadow-gray-100/50'
-                                            : 'bg-gray-800 border border-gray-700'
-                                            }`}
-                                        initial={{ opacity: 0, x: -20 }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                        transition={{ delay: idx * 0.1 }}
-                                        viewport={{ once: true }}
-                                    >
-                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 ${getColor(exp.type)} shadow-lg`}>
-                                            <Icon className="w-6 h-6 text-white" />
-                                        </div>
-                                        <div className="flex-1 text-left pt-1">
-                                            <h4 className={`font-bold text-lg mb-2 ${theme === 'light' ? 'text-gray-900' : 'text-white'
-                                                }`}>
-                                                {exp.title}
-                                            </h4>
-                                            <p className={`text-base font-medium mb-1 ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'
-                                                }`}>
-                                                {exp.company}
-                                            </p>
-                                            <p className={`text-sm ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'
-                                                }`}>
-                                                {exp.period}
-                                            </p>
-                                        </div>
-                                    </motion.div>
-                                );
-                            })}
-                        </div>
-                    </div>
+                {/* Vertical Center Stack */}
+                <div className="w-full space-y-12 flex flex-col items-center">
+                    {experiences.map((exp, idx) => {
+                        const Icon = getIcon(exp.type);
+                        return (
+                            <motion.div
+                                key={idx}
+                                className={`group relative w-full flex flex-col items-center text-center p-10 md:p-14 rounded-4xl border transition-all duration-500 ${theme === 'light'
+                                    ? 'bg-white border-gray-100 shadow-2xl shadow-gray-200/40 hover:border-[#7d1f2f]/20'
+                                    : 'bg-gray-900 border-gray-800'
+                                    }`}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6, delay: idx * 0.05 }}
+                                viewport={{ once: true, margin: "-100px" }}
+                            >
+                                {/* Center Icon */}
+                                <div className={`w-20 h-20 rounded-3xl flex items-center justify-center mb-8 bg-linear-to-br from-[#7d1f2f] to-[#d4a574] shadow-xl transform group-hover:scale-110 transition-transform duration-500`}>
+                                    <Icon size={32} className="text-white" />
+                                </div>
 
-                    {/* Skills */}
-                    <div>
-                        <div className="text-center md:text-left mb-10">
-                            <h3 className={`text-2xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'
-                                }`}>
-                                Kemampuan Utama
-                            </h3>
-                        </div>
-
-                        <div className={`w-full p-10 rounded-3xl ${theme === 'light'
-                            ? 'bg-white shadow-xl shadow-gray-100/50'
-                            : 'bg-gray-800 border border-gray-700'
-                            }`}>
-                            <div className="space-y-10">
-                                {skills.map((skill, idx) => (
-                                    <div key={skill.name}>
-                                        <div className="flex justify-between mb-3">
-                                            <span className={`text-lg font-semibold ${theme === 'light' ? 'text-gray-700' : 'text-gray-300'
-                                                }`}>
-                                                {skill.name}
-                                            </span>
-                                            <span className={`text-base font-medium ${theme === 'light' ? 'text-gray-500' : 'text-gray-500'
-                                                }`}>
-                                                {skill.level}%
-                                            </span>
-                                        </div>
-                                        <div className={`h-4 rounded-full overflow-hidden ${theme === 'light' ? 'bg-gray-100' : 'bg-gray-900'
-                                            }`}>
-                                            <motion.div
-                                                className="h-full rounded-full bg-linear-to-r from-[#7d1f2f] to-[#d4a574]"
-                                                initial={{ width: 0 }}
-                                                whileInView={{ width: `${skill.level}%` }}
-                                                transition={{ duration: 1.5, delay: idx * 0.1, ease: "circOut" }}
-                                                viewport={{ once: true }}
-                                            />
+                                {/* Content */}
+                                <div className="space-y-4 max-w-2xl flex flex-col items-center">
+                                    <div className="flex flex-wrap items-center justify-center gap-4 mb-2">
+                                        <span className={`px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest ${theme === 'light' ? 'bg-gray-100 text-[#7d1f2f]' : 'bg-gray-800 text-[#d4a574]'}`}>
+                                            {exp.type}
+                                        </span>
+                                        <div className={`flex items-center gap-2 text-xs font-bold ${theme === 'light' ? 'text-gray-400' : 'text-gray-500'}`}>
+                                            <Calendar size={14} />
+                                            {exp.period}
                                         </div>
                                     </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+
+                                    <h3 className={`text-2xl sm:text-3xl font-black ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
+                                        {exp.title}
+                                    </h3>
+                                    
+                                    <p className={`text-lg font-bold ${theme === 'light' ? 'text-[#7d1f2f]' : 'text-[#d4a574]'}`}>
+                                        {exp.company}
+                                    </p>
+
+                                    <p className={`text-base leading-relaxed ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
+                                        {exp.desc}
+                                    </p>
+                                </div>
+                                
+                                {/* Aesthetic Node Connector */}
+                                {idx !== experiences.length - 1 && (
+                                    <div className="absolute -bottom-12 left-1/2 w-[2px] h-12 bg-linear-to-b from-[#7d1f2f]/20 to-transparent transform -translate-x-1/2 hidden md:block" />
+                                )}
+                            </motion.div>
+                        );
+                    })}
                 </div>
             </div>
         </section>

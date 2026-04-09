@@ -3,101 +3,70 @@ import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useTheme } from '../context/ThemeContext';
-import { ExternalLink, Globe, Mic } from 'lucide-react';
+import { ExternalLink, Globe, Mic, ArrowRight } from 'lucide-react';
 
-import berbagiImg from '../assets/images/berbagibahagia.png';
-import iotImg from '../assets/images/iot.png';
-import minisoccerImg from '../assets/images/minisoccer.png';
-import rundownImg from '../assets/images/rundown.png';
-import timekeeperImg from '../assets/images/timekeeper.png';
 import webdevImg from '../assets/images/webdev.jpeg';
-import asoImg from '../assets/images/aso.jpg';
 import webquranImg from '../assets/images/webquran.png';
 import simadesaImg from '../assets/images/simadesa.jpeg';
+import berbagiImg from '../assets/images/berbagibahagia.png';
+import minisoccerImg from '../assets/images/minisoccer.png';
+import iotImg from '../assets/images/iot.png';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const projects = [
     {
         id: 1,
-        title: 'Pengembangan Sistem Web',
+        title: 'Monitoring Evidensi PLN',
         category: 'Web',
-        description: 'Merancang dan mengembangkan aplikasi web AlQuran, monitoring evidensi PLN UP2D serta sistem administrasi desa (Simadesa).',
-        tech: ['React', 'IoT', 'Fullstack'],
+        description: 'Aplikasi MOVI untuk monitoring internal dan efisiensi pelaporan di PT PLN UP2D Pekanbaru.',
+        tech: ['ReactJS', 'Express.js', 'PostgreSQL'],
         image: webdevImg,
         liveUrl: 'https://fe-movi.vercel.app',
     },
     {
-        id: 8,
-        title: 'Web Al-Quran',
+        id: 2,
+        title: 'Sistem Administrasi Desa',
         category: 'Web',
-        description: 'Aplikasi Al-Quran berbasis web yang modern dan responsif dengan fitur pencarian dan mode baca yang nyaman.',
-        tech: ['React', 'API', 'Vercel'],
-        image: webquranImg,
-        liveUrl: 'https://myquran-rust.vercel.app/',
-    },
-    {
-        id: 9,
-        title: 'Sistem Administrasi Desa (Simadesa)',
-        category: 'Web',
-        description: 'Platform digital untuk efisiensi administrasi dan pelayanan publik di tingkat pemerintahan desa secara terintegrasi.',
-        tech: ['Design', 'System Analyst', 'Management'],
+        description: 'Platform digital untuk digitalisasi pelayanan publik di tingkat pemerintahan desa.',
+        tech: ['System Analyst', 'UI/UX', 'Management'],
         image: simadesaImg,
         liveUrl: 'https://sungaimeranti.simadesa.id/',
     },
     {
-        id: 2,
-        title: 'MC & Aktivator Program – #BerbagiBahagia By Cinta Quran Foundation x NAYS Indonesia x Volunteernesia',
+        id: 3,
+        title: 'Web Al-Quran Modern',
+        category: 'Web',
+        description: 'Aplikasi pembaca Al-Quran digital dengan mode responsif dan fitur bookmark.',
+        tech: ['React', 'API Integration', 'Vercel'],
+        image: webquranImg,
+        liveUrl: 'https://myquran-rust.vercel.app/',
+    },
+    {
+        id: 4,
+        title: '#BerbagiBahagia Program',
         category: 'Event',
-        description: 'Sebagai Master of Ceremony (MC) yang memandu sesi edukasi dan permainan interaktif (games) untuk menciptakan suasana positif bagi adik-adik.',
-        tech: ['Public Speaking', 'Social'],
+        description: 'Master of Ceremony dan aktivasi program edukasi di Panti Asuhan.',
+        tech: ['Public Speaking', 'Event Organizing'],
         image: berbagiImg,
         liveUrl: '',
     },
     {
-        id: 3,
-        title: 'Panitia Riau Cup',
+        id: 5,
+        title: 'Riau Cup Minisoccer',
         category: 'Event',
-        description: 'Mengelola manajemen waktu pertandingan (Time Keeper) dan memberikan layanan informasi kepada peserta untuk memastikan kelancaran turnamen berskala daerah.',
-        tech: ['Time Management', 'Service'],
+        description: 'Manajemen operasional dan koordinasi waktu pada turnamen sepak bola daerah.',
+        tech: ['Time Management', 'Operations'],
         image: minisoccerImg,
         liveUrl: '',
     },
     {
-        id: 4,
-        title: 'Diskusi Labsquad AIOT Pra-workshop & Partnership',
-        category: 'Event',
-        description: 'Diskusi perencanaan anggaran dan strategi kemitraan untuk memastikan ketersediaan narasumber serta dana operasional kegiatan.',
-        tech: ['Partnership', 'Planning'],
-        image: iotImg,
-        liveUrl: '',
-    },
-    {
-        id: 5,
-        title: 'Monitoring Lapangan',
-        category: 'Event',
-        description: 'Bertanggung jawab menjaga ketepatan waktu seluruh rangkaian agenda selama 4 hari penuh, memastikan kegiatan berjalan selaras dengan rundown yang telah disusun.',
-        tech: ['Time Keeper', 'Field Ops'],
-        image: timekeeperImg,
-        liveUrl: '',
-    },
-    {
         id: 6,
-        title: 'Perancangan Rundown',
+        title: 'Labsquad AIoT Workshop',
         category: 'Event',
-        description: 'Mengoordinasikan penyusunan alur acara yang sistematis bersama tim divisi acara untuk menciptakan pengalaman kegiatan yang dinamis.',
-        tech: ['Event Organizer', 'Creative'],
-        image: rundownImg,
-        position: 'bottom',
-        liveUrl: '',
-    },
-    {
-        id: 7,
-        title: 'Divisi Acara (Time Keeper) – Bakti Sosial Kuok',
-        category: 'Event',
-        description: 'Mengkoordinasikan persiapan logistik dan distribusi bantuan sarana pendidikan untuk memastikan operasional kegiatan berjalan sesuai rencana',
-        tech: ['Logistics', 'Coordination'],
-        image: asoImg,
+        description: 'Perencanaan anggaran dan koordinasi kemitraan untuk kegiatan workshop teknologi.',
+        tech: ['Budgeting', 'Partnership'],
+        image: iotImg,
         liveUrl: '',
     },
 ];
@@ -136,33 +105,32 @@ function Projects() {
         <section
             id="projects"
             ref={sectionRef}
-            className={`section-padding ${theme === 'light' ? 'bg-gray-50' : 'bg-gray-900/50'
-                }`}
+            className={`w-full flex justify-center section-padding ${theme === 'light' ? 'bg-gray-50' : 'bg-[#0a0a0a]'}`}
         >
-            <div className="w-full flex flex-col items-center">
+            <div className="w-full max-w-7xl flex flex-col items-center text-center">
                 {/* Section Title */}
-                <div className="text-center mb-16">
-                    <span className={`project-title inline-block text-sm font-medium tracking-widest uppercase mb-4 ${theme === 'light' ? 'text-[#7d1f2f]' : 'text-[#d4a574]'
+                <div className="flex flex-col items-center mb-16">
+                    <span className={`project-title inline-block text-sm font-black tracking-widest uppercase mb-4 ${theme === 'light' ? 'text-[#7d1f2f]' : 'text-[#d4a574]'
                         }`}>
-                        Portfolio
+                        Projects
                     </span>
-                    <h2 className={`project-title text-3xl sm:text-4xl md:text-5xl font-bold ${theme === 'light' ? 'text-gray-900' : 'text-white'
+                    <h2 className={`project-title text-4xl sm:text-5xl md:text-6xl font-extrabold ${theme === 'light' ? 'text-gray-900' : 'text-white'
                         }`}>
-                        Pengalaman & Organisasi
+
                     </h2>
                 </div>
 
                 {/* Filter Buttons */}
-                <div className="flex flex-wrap justify-center gap-5 mb-16">
+                <div className="flex flex-wrap justify-center gap-4 mb-20 bg-white dark:bg-gray-900 p-2 rounded-full border border-gray-100 dark:border-gray-800 shadow-xl">
                     {categories.map((cat) => (
                         <button
                             key={cat}
                             onClick={() => setFilter(cat)}
-                            className={`px-8 py-3 rounded-full text-base font-medium transition-all ${filter === cat
-                                ? 'bg-[#7d1f2f] text-white shadow-xl shadow-[#7d1f2f]/30 transform scale-105'
+                            className={`px-10 py-3 rounded-full text-base font-bold transition-all duration-300 ${filter === cat
+                                ? 'bg-[#7d1f2f] text-white shadow-lg transform scale-105'
                                 : theme === 'light'
-                                    ? 'bg-white text-gray-600 hover:bg-gray-100 shadow-lg hover:-translate-y-1'
-                                    : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                                    ? 'text-gray-500 hover:text-gray-900'
+                                    : 'text-gray-400 hover:text-white'
                                 }`}
                         >
                             {cat}
@@ -171,89 +139,71 @@ function Projects() {
                 </div>
 
                 {/* Projects Grid */}
-                <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 justify-items-center">
                     <AnimatePresence mode="popLayout">
                         {filteredProjects.map((project) => (
                             <motion.article
                                 key={project.id}
                                 layout
-                                initial={{ opacity: 0, scale: 0.95 }}
+                                initial={{ opacity: 0, scale: 0.9 }}
                                 animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.95 }}
-                                whileHover={{ y: -15, scale: 1.02 }}
-                                whileTap={{ scale: 0.98 }}
-                                transition={{
-                                    type: "spring",
-                                    stiffness: 300,
-                                    damping: 20
-                                }}
-                                className={`rounded-3xl overflow-hidden shadow-2xl flex flex-col cursor-pointer ${theme === 'light'
-                                    ? 'bg-white border border-gray-100 hover:border-[#7d1f2f]/20'
-                                    : 'bg-gray-800 border border-gray-700 hover:border-[#d4a574]/30'
+                                exit={{ opacity: 0, scale: 0.9 }}
+                                transition={{ duration: 0.4 }}
+                                className={`group flex flex-col rounded-4xl overflow-hidden transition-all duration-500 hover:shadow-3xl ${theme === 'light'
+                                    ? 'bg-white border border-gray-100'
+                                    : 'bg-gray-900/50 border border-gray-800'
                                     }`}
                             >
-                                {/* Image */}
-                                <div className="relative h-48 sm:h-56 overflow-hidden group/img">
+                                {/* Image Wrapper */}
+                                <div className="relative h-64 overflow-hidden">
                                     <img
                                         src={project.image}
                                         alt={project.title}
-                                        className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-110"
-                                        style={{ objectPosition: (project as any).position || 'center' }}
+                                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
 
-                                    {/* Overlay on hover */}
-                                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                        <div className="p-3 rounded-full bg-white/20 backdrop-blur-md border border-white/30 transform translate-y-4 group-hover/img:translate-y-0 transition-transform duration-300">
-                                            <ExternalLink size={20} className="text-white" />
-                                        </div>
+                                    <div className="absolute top-6 left-6 px-4 py-2 bg-white/95 backdrop-blur-md rounded-full text-xs font-black text-gray-900 uppercase tracking-widest flex items-center gap-2">
+                                        {project.category === 'Event' ? <Mic size={14} /> : <Globe size={14} />}
+                                        {project.category}
                                     </div>
 
-                                    {/* Badge */}
-                                    <span className="absolute top-4 left-4 px-3 py-1.5 bg-white/95 backdrop-blur-sm rounded-full text-xs font-bold text-gray-800 flex items-center gap-1.5 shadow-sm">
-                                        {project.category === 'Event' ? <Mic size={12} /> : <Globe size={12} />}
-                                        {project.category}
-                                    </span>
-
-                                    {/* Link */}
                                     {project.liveUrl && (
                                         <a
                                             href={project.liveUrl}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="absolute top-4 right-4 p-2 bg-white/95 backdrop-blur-sm rounded-full hover:bg-white transition-colors shadow-sm group"
-                                            title="Visit Site"
+                                            className="absolute top-6 right-6 w-10 h-10 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center hover:bg-[#7d1f2f] hover:text-white transition-all transform scale-0 group-hover:scale-100"
                                         >
-                                            <ExternalLink size={16} className="text-gray-800 group-hover:text-[#7d1f2f] transition-colors" />
+                                            <ExternalLink size={18} />
                                         </a>
                                     )}
                                 </div>
 
                                 {/* Content */}
-                                <div className="p-8 text-center flex-1 flex flex-col items-center">
-                                    <h3 className={`text-xl font-bold mb-3 ${theme === 'light' ? 'text-gray-900' : 'text-white'
-                                        }`}>
+                                <div className="p-10 flex-1 flex flex-col items-center">
+                                    <h3 className={`text-2xl font-bold mb-4 ${theme === 'light' ? 'text-gray-900' : 'text-white'}`}>
                                         {project.title}
                                     </h3>
-
-                                    <p className={`text-sm mb-6 leading-relaxed flex-1 max-w-xs mx-auto ${theme === 'light' ? 'text-gray-500' : 'text-gray-400'
-                                        }`}>
+                                    <p className={`text-base leading-relaxed mb-8 flex-1 ${theme === 'light' ? 'text-gray-600' : 'text-gray-400'}`}>
                                         {project.description}
                                     </p>
 
-                                    {/* Tech */}
-                                    <div className="flex flex-wrap justify-center gap-2 mt-auto">
+                                    <div className="flex flex-wrap justify-center gap-2 mb-8">
                                         {project.tech.map((tech) => (
-                                            <span
-                                                key={tech}
-                                                className={`px-3 py-1 rounded-full text-xs font-medium border ${theme === 'light'
-                                                    ? 'bg-gray-50 text-gray-600 border-gray-100'
-                                                    : 'bg-gray-800/50 text-gray-300 border-gray-700'
-                                                    }`}
-                                            >
+                                            <span key={tech} className="text-[10px] font-black uppercase tracking-widest text-[#7d1f2f] dark:text-[#d4a574]">
                                                 {tech}
                                             </span>
                                         ))}
                                     </div>
+
+                                    {project.liveUrl ? (
+                                        <a href={project.liveUrl} target="_blank" className="flex items-center gap-2 text-sm font-bold text-[#7d1f2f] dark:text-[#d4a574] hover:gap-4 transition-all group/link">
+                                            Lihat Proyek <ArrowRight size={16} className="transition-transform group-hover/link:translate-x-1" />
+                                        </a>
+                                    ) : (
+                                        <div className="text-sm font-bold text-gray-300 dark:text-gray-700">Internal Only</div>
+                                    )}
                                 </div>
                             </motion.article>
                         ))}

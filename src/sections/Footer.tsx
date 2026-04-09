@@ -9,7 +9,7 @@ function Footer() {
     };
 
     return (
-        <footer className={`py-32 px-6 pb-[100vh] relative ${theme === 'light' ? 'bg-white' : 'bg-gray-900'
+        <footer className={`py-12 md:py-20 px-6 relative border-t ${theme === 'light' ? 'bg-white border-gray-100' : 'bg-black border-gray-900'
             }`}>
             {/* Elegant Divider */}
             <div className={`absolute top-0 left-1/2 -translate-x-1/2 w-4/5 max-w-4xl h-px ${theme === 'light' ? 'bg-linear-to-r from-transparent via-gray-200 to-transparent' : 'bg-linear-to-r from-transparent via-gray-800 to-transparent'
